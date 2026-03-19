@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import GoogleAnalytics from "@/components/ui/GoogleAnalytics";
 
 export const metadata: Metadata = {
-  title: "Mirangga Jakti — AI-Powered Software Engineer",
+  title: "Mirangga Jakti — AI-Powered Full-Stack Engineer",
   description:
-    "AI-Powered Software Engineer from Indonesia. Building AI-driven web apps, SaaS tools, and intelligent automation. Open to global remote opportunities.",
+    "AI-Powered Full-Stack Engineer from Indonesia. Building AI-driven web apps, SaaS tools, and intelligent automation. Open to global remote opportunities.",
   keywords: [
     "AI Software Engineer",
     "Full-Stack Developer",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Mirangga Jakti" }],
   openGraph: {
-    title: "Mirangga Jakti — AI-Powered Software Engineer",
+    title: "Mirangga Jakti — AI-Powered Full-Stack Engineer",
     description:
       "Building AI-powered web apps that solve real-world problems. Open to global remote opportunities.",
     type: "website",
@@ -32,7 +33,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <GoogleAnalytics />
+        {children}
+      </body>
     </html>
   );
 }
