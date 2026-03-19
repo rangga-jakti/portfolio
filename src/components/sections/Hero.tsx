@@ -107,14 +107,14 @@ export default function Hero() {
 
       {/* ── Main layout ── */}
       <div className="max-w-6xl mx-auto px-6 pt-24 pb-16 w-full relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8">
 
           {/* ══ LEFT — Text content ══ */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="flex-1 max-w-2xl"
+            className="flex-1 max-w-2xl w-full"
           >
             {/* Available badge */}
             <motion.div variants={itemVariants} className="mb-6">
@@ -206,12 +206,12 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* ══ RIGHT — Hero Card (hidden on mobile) ══ */}
+          {/* ══ RIGHT — Hero Card ══ */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.8, duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="hidden lg:flex flex-shrink-0 items-center justify-center w-[340px]"
+            className="flex flex-shrink-0 items-center justify-center w-full lg:w-[340px]"
           >
             <HeroCard />
           </motion.div>

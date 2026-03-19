@@ -49,7 +49,8 @@ function TerminalBg() {
     timers.push(resetTimer);
 
     return () => timers.forEach(clearTimeout);
-  }, [visibleLines.length === 0 ? 0 : -1]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Re-trigger loop
   useEffect(() => {
@@ -93,14 +94,14 @@ export default function HeroCard() {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className="relative w-full max-w-[340px] mx-auto">
+    <div className="relative w-full max-w-[300px] sm:max-w-[340px] mx-auto">
 
       {/* ── Terminal background layer ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute -inset-6 rounded-2xl bg-surface/60 border border-border/30 overflow-hidden"
+        className="absolute -inset-3 lg:-inset-6 rounded-2xl bg-surface/60 border border-border/30 overflow-hidden"
         style={{ zIndex: 0 }}
       >
         <TerminalBg />
