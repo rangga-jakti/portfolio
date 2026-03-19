@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { siteConfig } from "@/lib/data";
+import { FileText } from "lucide-react";
 
 const navLinks = [
   { label: "About",      href: "#about",      number: "01" },
@@ -66,14 +66,18 @@ export default function Navbar() {
               </li>
             ))}
             <li>
-              <a
+              <motion.a
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 text-sm font-outfit text-cyan-glow border border-cyan-glow/40 rounded hover:bg-cyan-dim transition-all duration-300 hover:border-cyan-glow/80"
+                aria-label="View Mirangga Jakti Resume PDF"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="flex items-center gap-1.5 px-4 py-2 text-sm font-outfit text-cyan-glow border border-cyan-glow/40 rounded transition-all duration-300 hover:bg-cyan-dim hover:border-cyan-glow hover:shadow-cyan-sm"
               >
+                <FileText size={13} />
                 Resume
-              </a>
+              </motion.a>
             </li>
           </ul>
 
@@ -121,8 +125,12 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
               href="/resume.pdf"
-              className="mt-4 px-6 py-3 border border-cyan-glow/50 text-cyan-glow font-outfit rounded hover:bg-cyan-dim transition-all"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Resume PDF"
+              className="mt-4 flex items-center gap-2 px-6 py-3 border border-cyan-glow/50 text-cyan-glow font-outfit rounded hover:bg-cyan-dim transition-all"
             >
+              <FileText size={15} />
               Resume
             </motion.a>
           </motion.div>
