@@ -11,8 +11,9 @@ export default function Analytics() {
   useEffect(() => {
     if (!window.gtag) return;
 
-    window.gtag("config", GA_ID, {
+    window.gtag("event", "page_view", {
       page_path: pathname,
+      page_location: window.location.href,
     });
   }, [pathname]);
 

@@ -25,26 +25,35 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* 🔥 GA SCRIPT */}
+        {/* ✅ Load GA script */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            window.gtag = gtag;
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}', {
-              page_path: window.location.pathname,
-            });
-          `}
-        </Script>
+
+        {/* ✅ Init GA properly */}
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
+
+              gtag('js', new Date());
+
+              gtag('config', '${GA_ID}', {
+                page_path: window.location.pathname,
+                send_page_view: true
+              });
+            `,
+          }}
+        />
       </head>
 
       <body>
-        <Analytics /> {/* 🔥 INI PENTING BANGET */}
+        <Analytics />
         {children}
       </body>
     </html>
