@@ -5,8 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     domains: [],
   },
-  // Ignore ESLint and TypeScript errors during build
-  // (warnings only, won't block deployment)
   eslint: {
     ignoreDuringBuilds: true,
   },
