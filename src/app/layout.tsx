@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+import GATracker from "@/components/ui/GATracker";
+import { GA_ID } from "@/lib/gtag";
 
 export const metadata: Metadata = {
   title: "Mirangga Jakti — AI-Powered Full-Stack Engineer",
@@ -14,8 +16,6 @@ export const metadata: Metadata = {
   },
 };
 
-const GA_ID = "G-17DB76ECR";
-
 export default function RootLayout({
   children,
 }: {
@@ -28,16 +28,19 @@ export default function RootLayout({
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
-        <Script id="ga4" strategy="afterInteractive">
+        <Script id="ga4-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){window.dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_ID}');
+            gtag('config', '${GA_ID}', {
+              send_page_view: false
+            });
           `}
         </Script>
       </head>
       <body className="antialiased">
+        <GATracker />
         {children}
       </body>
     </html>
