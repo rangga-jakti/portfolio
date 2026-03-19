@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   },
 };
 
+const GA_ID = "G-17DB76ECR";
+
 export default function RootLayout({
   children,
 }: {
@@ -21,19 +23,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased">
+      <head>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-17DB76ECR"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
-        <Script id="ga4-init" strategy="afterInteractive">
+        <Script id="ga4" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){window.dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-17DB76ECR');
+            gtag('config', '${GA_ID}');
           `}
         </Script>
+      </head>
+      <body className="antialiased">
         {children}
       </body>
     </html>
