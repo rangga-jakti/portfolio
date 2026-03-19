@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Mirangga Jakti — AI-Powered Full-Stack Engineer",
   description:
     "AI-Powered Full-Stack Engineer from Indonesia. Building AI-driven web apps, SaaS tools, and intelligent automation. Open to global remote opportunities.",
 };
+
+const GA_ID = "G-17DB76ECR";
 
 export default function RootLayout({
   children,
@@ -15,12 +17,29 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        {children}
+      <head>
+        {/* GA script */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
 
-        {/* 🔥 GA — cara resmi Next.js */}
-        <GoogleAnalytics gaId="G-17DB76ECR" />
-      </body>
+        {/* GA init */}
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}');
+            `,
+          }}
+        />
+      </head>
+
+      <body>{children}</body>
     </html>
   );
 }

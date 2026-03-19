@@ -1,12 +1,5 @@
 export const GA_ID = "G-17DB76ECR";
 
-declare global {
-  interface Window {
-    gtag: (...args: unknown[]) => void;
-    dataLayer: unknown[];
-  }
-}
-
 export const pageview = (url: string) => {
   window.gtag('config', GA_ID, {
     page_path: url,
