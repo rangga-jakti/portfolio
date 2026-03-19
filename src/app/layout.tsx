@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
-import GATracker from "@/components/ui/GATracker";
-import { GA_ID } from "@/lib/gtag";
+import Analytics from "@/components/Analytics";
 
 export const metadata: Metadata = {
   title: "Mirangga Jakti — AI-Powered Full-Stack Engineer",
@@ -16,31 +15,36 @@ export const metadata: Metadata = {
   },
 };
 
+const GA_ID = "G-17DB76ECR";
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <head>
+        {/* 🔥 GA SCRIPT */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
-        <Script id="ga4-init" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
             gtag('js', new Date());
             gtag('config', '${GA_ID}', {
-              send_page_view: false
+              page_path: window.location.pathname,
             });
           `}
         </Script>
       </head>
-      <body className="antialiased">
-        <GATracker />
+
+      <body>
+        <Analytics /> {/* 🔥 INI PENTING BANGET */}
         {children}
       </body>
     </html>
