@@ -1,21 +1,18 @@
-"use client";
+"use client"
 
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
-
-const GA_ID = "G-17DB76ECR";
+import { useEffect } from "react"
+import { usePathname } from "next/navigation"
 
 export default function Analytics() {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   useEffect(() => {
-    if (!window.gtag) return;
+    if (window.gtag) {
+      window.gtag("event", "page_view", {
+        page_path: pathname,
+      })
+    }
+  }, [pathname])
 
-    window.gtag("event", "page_view", {
-      page_path: pathname,
-      page_location: window.location.href,
-    });
-  }, [pathname]);
-
-  return null;
+  return null
 }
