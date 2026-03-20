@@ -1,214 +1,227 @@
-# 🚀 Portfolio — Alex Rivera
+# 🚀 AI-Powered Portfolio — Mirangga Jakti
 
-Portfolio website premium yang dibangun dengan Next.js 15, TailwindCSS, dan Framer Motion.
+A premium, production-grade portfolio built with Next.js App Router, showcasing real AI systems, advanced frontend engineering, and full-stack capabilities.
 
----
-
-## 📦 Prerequisites (Syarat)
-
-Pastikan kamu sudah menginstall:
-
-- **Node.js** v18+ → https://nodejs.org
-- **npm** v9+ (otomatis terpasang bersama Node.js)
-- **Git** (opsional) → https://git-scm.com
+> **This is not a template. This is a system built from scratch.**
 
 ---
 
-## ⚡ Cara Menjalankan di Windows 10
+## Overview
 
-### Langkah 1 — Install Node.js
-1. Buka https://nodejs.org
-2. Download versi **LTS** (Long Term Support)
-3. Jalankan installer, ikuti wizard instalasi
-4. Verifikasi instalasi di Command Prompt:
-   ```
-   node --version
-   npm --version
-   ```
+This portfolio represents my work as an **AI-Powered Full-Stack Engineer**, combining:
 
-### Langkah 2 — Extract / Clone Project
-Option A - Extract ZIP:
-1. Extract file `portfolio.zip` ke folder pilihan kamu, misalnya `C:\Projects\portfolio`
+- Interactive frontend systems
+- Real AI SaaS applications
+- Production-ready integrations
+- Analytics & performance tracking
 
-Option B - Clone (jika menggunakan Git):
+Built with a strong focus on engineering quality, not just visuals.
+
+---
+
+## Tech Stack
+
+```
+Frontend    Next.js 14 · TypeScript · TailwindCSS · Framer Motion
+Animation   Canvas API · Custom physics · CSS animations
+Backend     Next.js API Routes · Resend (email delivery)
+Analytics   Google Analytics 4 (custom App Router implementation)
+Deployment  Vercel · GitHub CI/CD
+AI Systems  Django · PostgreSQL · Groq API · LLaMA · Prophet
+```
+
+---
+
+## Key Features
+
+### Interactive Frontend System
+- Canvas-based particle engine (80 particles + connection graph)
+- 3D tilt cards with real-time mouse tracking
+- Magnetic cursor with spring physics
+- Scroll-triggered animations & parallax effects
+- Typewriter role animation
+- Fully responsive (mobile-first)
+
+### Contact System (Production)
+- Integrated with **Resend API**
+- Sends real emails directly to inbox
+- Includes validation, loading states, and success feedback
+
+### Analytics System (GA4)
+
+Standard GA4 setup breaks in Next.js App Router due to SSR + SPA behavior.
+
+**Custom solution:**
+- Client-side tracking using `usePathname`
+- Manual `page_view` dispatch on route changes
+- Safe handling of `window` to avoid SSR crashes
+- Verified using:
+  - DevTools (`collect` requests → 204)
+  - GA4 Realtime dashboard
+
+---
+
+## AI Projects Featured
+
+### TrendPulse AI
+Real-time market intelligence platform
+
+| Component | Detail |
+|-----------|--------|
+| Data pipeline | Google Trends + News RSS |
+| Scoring | Custom Virality Score algorithm |
+| AI insights | LLaMA 3.3 via Groq API |
+| Forecasting | Prophet (7–30 day predictions) |
+| Automation | APScheduler background jobs |
+
+**Stack:** Django · PostgreSQL · LLM · Time-series ML
+
+### VentureLens AI
+AI-powered startup idea validator
+
+| Feature | Detail |
+|---------|--------|
+| Analysis | SWOT · viability score · competitor mapping |
+| Output | Exportable PDF reports |
+| Speed | Full analysis in seconds |
+
+**Stack:** Django · PostgreSQL · LLM
+
+---
+
+## Engineering Challenges Solved
+
+- Solved GA4 tracking issues in Next.js App Router (SSR vs Client)
+- Debugged `window is not defined` and missing analytics data
+- Fixed SPA navigation tracking gaps using `usePathname`
+- Handled Vercel deployment blocking due to Next.js CVE
+- Resolved dependency conflicts (React 19 vs Next.js 14)
+- Recovered broken states using `git revert` without losing history
+- Fixed build failures (ESLint, duplicate imports, config format)
+
+---
+
+## Getting Started (Windows 10)
+
+### 1. Install Node.js
+Download: https://nodejs.org (LTS version)
+
 ```bash
-git clone <repo-url>
+node -v
+npm -v
+```
+
+### 2. Clone Repository
+
+```bash
+git clone https://github.com/rangga-jakti/portfolio.git
 cd portfolio
 ```
 
-### Langkah 3 — Install Dependencies
-Buka **Command Prompt** atau **PowerShell**, masuk ke folder project:
+### 3. Install Dependencies
+
 ```bash
-cd C:\Projects\portfolio
 npm install
 ```
-Tunggu hingga selesai (biasanya 1-2 menit tergantung koneksi internet).
 
-### Langkah 4 — Jalankan Development Server
+### 4. Setup Environment Variables
+
+Create `.env.local` in the root folder:
+
+```env
+RESEND_API_KEY=your_resend_api_key_here
+NEXT_PUBLIC_GA_ID=your_ga4_measurement_id
+```
+
+### 5. Run Development Server
+
 ```bash
 npm run dev
 ```
 
-### Langkah 5 — Buka di Browser
-Buka browser dan akses:
-```
-http://localhost:3000
-```
-
-🎉 **Portfolio kamu sudah berjalan!**
+Open: http://localhost:3000
 
 ---
 
-## 🛠️ Perintah yang Tersedia
+## Available Commands
 
-| Perintah | Fungsi |
-|----------|--------|
-| `npm run dev` | Jalankan development server (hot-reload) |
-| `npm run build` | Build untuk production |
-| `npm start` | Jalankan production server (butuh build dulu) |
-| `npm run lint` | Cek error kode dengan ESLint |
-
----
-
-## ✏️ Cara Kustomisasi
-
-### 1. Ganti Data Personal
-Edit file: `src/lib/data.ts`
-
-```typescript
-export const siteConfig = {
-  name: "Nama Kamu",          // ← ganti ini
-  title: "Full-Stack Engineer",
-  email: "kamu@email.com",    // ← ganti ini
-  github: "https://github.com/username",  // ← ganti ini
-  linkedin: "https://linkedin.com/in/username",
-  twitter: "https://twitter.com/username",
-  location: "Jakarta, Indonesia",
-};
-```
-
-### 2. Ganti Project
-Edit array `projects` di `src/lib/data.ts`:
-```typescript
-export const projects = [
-  {
-    id: 1,
-    title: "Nama Project Kamu",
-    description: "Deskripsi singkat project...",
-    tech: ["React", "Node.js", "PostgreSQL"],
-    github: "https://github.com/...",
-    live: "https://project.com",
-    featured: true,
-    gradient: "from-cyan-glow/10 to-blue-500/5",
-  },
-  // tambah project lainnya...
-];
-```
-
-### 3. Ganti Pengalaman Kerja
-Edit array `experiences` di `src/lib/data.ts`.
-
-### 4. Ganti Warna Tema
-Edit `tailwind.config.ts` bagian `colors`:
-```typescript
-cyan: {
-  glow: "#00FFE0",  // ← warna aksen utama
-},
-```
-
-### 5. Ganti Resume
-Taruh file PDF resume kamu di `public/resume.pdf`
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm start` | Run production build |
+| `npm run lint` | Run ESLint |
 
 ---
 
-## 📁 Struktur Project
+## Customization
 
+**Update personal data:**
 ```
-portfolio/
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx          # Root layout, metadata SEO
-│   │   ├── page.tsx            # Halaman utama (assembly semua sections)
-│   │   └── globals.css         # Global styles, CSS variables
-│   ├── components/
-│   │   ├── ui/
-│   │   │   ├── MagneticCursor.tsx    # Custom animated cursor
-│   │   │   ├── ParticleField.tsx     # Canvas particle animation
-│   │   │   ├── ScrollProgress.tsx    # Progress bar scroll
-│   │   │   ├── AnimatedCounter.tsx   # Number counter animasi
-│   │   │   └── SectionReveal.tsx     # Wrapper animasi reveal
-│   │   ├── sections/
-│   │   │   ├── Hero.tsx         # Landing + typewriter + parallax
-│   │   │   ├── About.tsx        # Bio + tech stack + terminal card
-│   │   │   ├── Projects.tsx     # Grid cards dengan 3D tilt hover
-│   │   │   ├── Experience.tsx   # Timeline / tab layout pengalaman
-│   │   │   └── Contact.tsx      # Form kontak + social links
-│   │   └── layout/
-│   │       ├── Navbar.tsx       # Fixed navbar + mobile menu
-│   │       └── Footer.tsx       # Footer dengan social links
-│   └── lib/
-│       ├── data.ts              # ⭐ SEMUA DATA PORTFOLIO DI SINI
-│       └── utils.ts             # Utility functions (cn helper)
-├── public/
-│   └── resume.pdf               # ← taruh resume kamu di sini
-├── tailwind.config.ts           # Konfigurasi Tailwind + custom colors
-├── next.config.ts               # Konfigurasi Next.js
-├── tsconfig.json                # Konfigurasi TypeScript
-└── package.json                 # Dependencies
+src/lib/data.ts
+```
+
+**Replace resume:**
+```
+public/resume.pdf
+```
+
+**Update theme colors:**
+```
+tailwind.config.ts
 ```
 
 ---
 
-## 🎨 Fitur Unggulan
+## Project Structure
 
-| Fitur | Detail |
-|-------|--------|
-| **Magnetic Cursor** | Custom cursor dengan trailing ring effect |
-| **Particle Field** | Canvas WebGL-like particles di hero section |
-| **Scroll Progress** | Progress bar cyan di top halaman |
-| **Typewriter Effect** | Animasi ketik role di hero |
-| **3D Tilt Cards** | Kartu project tilt mengikuti mouse |
-| **Mouse Parallax** | Orb background bergerak ikuti kursor |
-| **Section Reveal** | Animasi fade+slide saat scroll |
-| **Scan Line** | Subtle CRT scan effect di hero |
-| **Tab Experience** | Komponen tab interaktif untuk pengalaman |
-| **Form Contact** | Form dengan animasi success state |
-| **Mobile Menu** | Fullscreen overlay dengan animasi stagger |
-| **Scroll-aware Navbar** | Navbar glassmorphism saat scroll |
-
----
-
-## 🚀 Deploy ke Production
-
-### Vercel (Direkomendasikan — GRATIS)
-1. Push ke GitHub
-2. Login ke https://vercel.com
-3. Klik "New Project" → Import repo kamu
-4. Klik Deploy → selesai! Auto dapat domain `.vercel.app`
-
-### Build Manual
-```bash
-npm run build
-npm start
+```
+src/
+├── app/
+│   ├── layout.tsx            # Root layout + GA4 setup
+│   ├── page.tsx              # Main page assembly
+│   └── api/contact/          # Resend email API route
+├── components/
+│   ├── ui/                   # Reusable UI components
+│   │   ├── MagneticCursor    # Custom cursor with physics
+│   │   ├── ParticleField     # Canvas particle system
+│   │   ├── HeroCard          # Glassmorphism profile card
+│   │   ├── SocialLinks       # Social icons with tooltips
+│   │   ├── GATracker         # GA4 route change tracker
+│   │   └── ScrollProgress    # Scroll progress indicator
+│   ├── sections/             # Page sections
+│   │   ├── Hero              # Landing + typewriter + parallax
+│   │   ├── About             # Bio + skills + terminal card
+│   │   ├── Projects          # Featured + ML projects grid
+│   │   ├── Experience        # Timeline / tab layout
+│   │   └── Contact           # Form + social links
+│   └── layout/
+│       ├── Navbar            # Fixed navbar + mobile menu
+│       └── Footer            # Footer with social links
+├── lib/
+│   ├── data.ts               # All portfolio content
+│   ├── gtag.ts               # GA4 event helpers
+│   └── utils.ts              # Utility functions
+public/
+├── resume.pdf                # Your resume PDF
+└── images/
+    └── profile.jpeg          # Your profile photo
 ```
 
 ---
 
-## ⚠️ Troubleshooting Windows
+## Live
 
-**Error: "node is not recognized"**
-→ Install Node.js dari https://nodejs.org, restart Command Prompt
-
-**Error: "Cannot find module"**
-→ Jalankan `npm install` lagi di folder project
-
-**Port 3000 sudah dipakai**
-→ Jalankan di port lain: `npm run dev -- -p 3001`
-
-**Layar cursor tidak muncul**
-→ Normal di touch device, cursor custom hanya muncul di desktop dengan mouse
+- **Portfolio:** https://portfolio-77wy.vercel.app
+- **GitHub:** https://github.com/rangga-jakti
 
 ---
 
-## 📄 License
-MIT — bebas digunakan dan dimodifikasi.
+## License
+
+MIT — free to use and modify.
+
+---
+
+*Built from scratch. Deployed to production. Tracking analytics. Sending real emails.*
+*Every line written intentionally.*
