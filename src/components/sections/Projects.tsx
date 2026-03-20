@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { featuredProjects, mlProjects } from "@/lib/data";
 import { trackProjectClick } from "@/lib/analytics";
-import { trackProjectClick } from "@/lib/gtag";
+
 
 const iconMap: Record<string, React.ElementType> = {
   shield:      ShieldAlert,
