@@ -3,8 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText } from "lucide-react";
-import { trackResumeClick } from "@/lib/analytics";
-import { siteConfig } from "@/lib/data";
 
 const navLinks = [
   { label: "About",      href: "#about",      number: "01" },
@@ -75,7 +73,6 @@ export default function Navbar() {
                 aria-label="View Mirangga Jakti Resume PDF"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={trackResumeClick}
                 className="flex items-center gap-1.5 px-4 py-2 text-sm font-outfit text-cyan-glow border border-cyan-glow/40 rounded transition-all duration-300 hover:bg-cyan-dim hover:border-cyan-glow hover:shadow-cyan-sm"
               >
                 <FileText size={13} />

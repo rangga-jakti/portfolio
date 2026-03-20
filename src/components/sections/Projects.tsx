@@ -9,8 +9,6 @@ import {
   MessageSquare
 } from "lucide-react";
 import { featuredProjects, mlProjects } from "@/lib/data";
-import { trackProjectClick } from "@/lib/analytics";
-
 
 const iconMap: Record<string, React.ElementType> = {
   shield:      ShieldAlert,
@@ -106,7 +104,6 @@ function FeaturedCard({
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackProjectClick(project.title)}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className="flex items-center gap-2 px-4 py-2 bg-surface-3 border border-border hover:border-cyan-glow/50 hover:bg-cyan-dim hover:text-cyan-glow text-text-secondary font-outfit text-xs rounded-lg transition-all duration-200"

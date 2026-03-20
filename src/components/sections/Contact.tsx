@@ -4,10 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Send, Mail, MapPin, AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
-import { trackContactSubmit } from "@/lib/analytics";
 import { siteConfig } from "@/lib/data";
 import SocialLinks from "@/components/ui/SocialLinks";
-
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -65,7 +63,6 @@ export default function Contact() {
       }
 
       setStatus("success");
-      trackContactSuccess();
       setForm({ name: "", email: "", message: "" });
       setTouched({ name: false, email: false, message: false });
 
