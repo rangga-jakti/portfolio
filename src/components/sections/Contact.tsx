@@ -7,7 +7,7 @@ import { Send, Mail, MapPin, AlertCircle, CheckCircle2, Loader2 } from "lucide-r
 import { trackContactSubmit } from "@/lib/analytics";
 import { siteConfig } from "@/lib/data";
 import SocialLinks from "@/components/ui/SocialLinks";
-import { trackContactSubmit, trackContactSuccess } from "@/lib/gtag";
+
 
 type Status = "idle" | "sending" | "success" | "error";
 
