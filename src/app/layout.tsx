@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+import GATracker from "@/components/GATracker";
 
 export const metadata: Metadata = {
-  title: "Mirangga Jakti — AI-Powered Full-Stack Engineer",
+  title: "Mirangga Jakti – AI-Powered Full-Stack Engineer",
   description: "AI-powered web apps and SaaS builder",
 };
 
@@ -23,7 +24,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
 
-        {/* 🔥 INIT */}
+        {/* 🔥 GA INIT */}
         <Script
           id="ga-init"
           strategy="afterInteractive"
@@ -32,11 +33,18 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               window.gtag = gtag;
+
               gtag('js', new Date());
-              gtag('config', '${GA_ID}');
+
+              gtag('config', '${GA_ID}', {
+                send_page_view: false
+              });
             `,
           }}
         />
+
+        {/* 🔥 TRACK PAGE VIEW */}
+        <GATracker />
 
         {children}
       </body>
