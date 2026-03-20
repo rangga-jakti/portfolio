@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText } from "lucide-react";
 import { trackResumeClick } from "@/lib/analytics";
-
+import { trackResumeDownload } from "@/lib/gtag";
 import { siteConfig } from "@/lib/data";
 
 const navLinks = [
@@ -74,7 +74,6 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View Mirangga Jakti Resume PDF"
-                onClick={() => trackResumeDownload()}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={trackResumeClick}
