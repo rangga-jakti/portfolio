@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "AI-powered web apps and SaaS builder",
 };
 
-const GA_ID = "G-17DB76ECR";
+const GA_ID = "G-G49EVP6QBP"; 
 
 export default function RootLayout({
   children,
@@ -18,13 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* 🔥 GA LOAD */}
+        {/* 🔥 LOAD GOOGLE ANALYTICS */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
 
-        {/* 🔥 GA INIT */}
+        {/* 🔥 INIT GOOGLE ANALYTICS */}
         <Script
           id="ga-init"
           strategy="afterInteractive"
@@ -36,9 +36,7 @@ export default function RootLayout({
 
               gtag('js', new Date());
 
-              gtag('config', '${GA_ID}', {
-                send_page_view: false
-              });
+              gtag('config', '${GA_ID}');
             `,
           }}
         />
