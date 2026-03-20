@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
-import GATracker from "@/components/GATracker";
 
 export const metadata: Metadata = {
-  title: "Mirangga Jakti – AI-Powered Full-Stack Engineer",
+  title: "Mirangga Jakti - AI-Powered Full-Stack Engineer",
   description: "AI-powered web apps and SaaS builder",
 };
 
-const GA_ID = "G-17DB76ECR";
+const GA_ID = "G-G49EVP6QBP";
 
 export default function RootLayout({
   children,
@@ -18,13 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* 🔥 GA LOAD */}
+        {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
 
-        {/* 🔥 GA INIT */}
         <Script
           id="ga-init"
           strategy="afterInteractive"
@@ -33,18 +31,11 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               window.gtag = gtag;
-
               gtag('js', new Date());
-
-              gtag('config', '${GA_ID}', {
-                send_page_view: false
-              });
+              gtag('config', '${GA_ID}');
             `,
           }}
         />
-
-        {/* 🔥 TRACK PAGE VIEW */}
-        <GATracker />
 
         {children}
       </body>
