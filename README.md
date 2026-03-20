@@ -212,8 +212,9 @@ public/
 
 ## Live
 
-- **Portfolio:** https://portfolio-77wy.vercel.app
+- **Portfolio:** https://mirangga-jakti.vercel.app/
 - **GitHub:** https://github.com/rangga-jakti
+- **LinkedIn:** https://www.linkedin.com/in/mirangga-jakti-8b0a69334/
 
 ---
 
