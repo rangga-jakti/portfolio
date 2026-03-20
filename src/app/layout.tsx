@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+import GATracker from "@/components/GATracker";
 
 export const metadata: Metadata = {
   title: "Mirangga Jakti - AI-Powered Full-Stack Engineer",
@@ -17,12 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* Google Analytics */}
+        {/* ✅ Load GA */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
 
+        {/* ✅ Init GA */}
         <Script
           id="ga-init"
           strategy="afterInteractive"
@@ -36,6 +38,9 @@ export default function RootLayout({
             `,
           }}
         />
+
+        {/* ✅ TRACK PAGE VIEW */}
+        <GATracker />
 
         {children}
       </body>
