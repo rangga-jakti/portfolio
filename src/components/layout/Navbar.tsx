@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText } from "lucide-react";
 import { trackResumeClick } from "@/lib/analytics";
-import { trackResumeDownload } from "@/lib/gtag";
 import { siteConfig } from "@/lib/data";
 
 const navLinks = [
