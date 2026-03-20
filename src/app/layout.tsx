@@ -4,8 +4,7 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Mirangga Jakti — AI-Powered Full-Stack Engineer",
-  description:
-    "AI-Powered Full-Stack Engineer from Indonesia. Building AI-driven web apps, SaaS tools, and intelligent automation. Open to global remote opportunities.",
+  description: "AI-powered web apps and SaaS builder",
 };
 
 const GA_ID = "G-17DB76ECR";
@@ -17,31 +16,30 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* GA script */}
+      <body>
+        {/* 🔥 GA LOAD */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
 
-        {/* GA init */}
+        {/* 🔥 INIT */}
         <Script
-          id="google-analytics"
+          id="ga-init"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
               gtag('js', new Date());
-              gtag('config', '${GA_ID}', {
-              debug_mode: true
-              });
+              gtag('config', '${GA_ID}');
             `,
           }}
         />
-      </head>
 
-      <body>{children}</body>
+        {children}
+      </body>
     </html>
   );
 }
